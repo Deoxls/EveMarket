@@ -1,0 +1,22 @@
+[
+  {
+    "id" : 0,
+    "title" : "Scordite",
+    "type" : "ressource"
+  },
+  {
+    "id" : 1,
+    "title" : "Tritanium",
+    "type" : "recycle"
+  },
+  {
+    "id" : 3,
+    "title" : "Veldspar",
+    "type" : "ressource"
+  },
+  {
+    "id" : 4,
+    "title" : "Pyérite",
+    "type" : "ressource"
+  }
+]
