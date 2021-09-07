@@ -5,28 +5,10 @@ const boxen = require("boxen")
 const yargs = require("yargs");
 const {Select} = require("enquirer")
 
-const Menu = require("../data/menu.json")
+const MenuClass = require ("../components/Menu.js")
 
-//Menu
-let res = []
-
-for(const [title, position] of Object.entries(Menu)){
-  console.log(position.Title)
-  res.push(
-    position.Title 
-  )   
-}
-
-(async ()=> {
-  const listeSelect = new Select({
-    name: 'Catégorie',
-    message: 'Choisisser:',
-    choices: res
-  })
-  listeSelect.run()
-    .then(answer=>console.log('Answer: ', answer))
-    .catch(console.error)
-})()
+const begin = new MenuClass()
+begin.begin()
 
 
 //Parametre de commande
