@@ -3,7 +3,31 @@
 const chalk = require("chalk")
 const boxen = require("boxen")
 const yargs = require("yargs");
-const {prompt} = require("enquirer")
+const {Select} = require("enquirer")
+
+const Menu = require("../data/menu.json")
+
+//Menu
+let res = []
+
+for(const [title, position] of Object.entries(Menu)){
+  console.log(position.Title)
+  res.push(
+    position.Title 
+  )   
+}
+
+(async ()=> {
+  const listeSelect = new Select({
+    name: 'Catégorie',
+    message: 'Choisisser:',
+    choices: res
+  })
+  listeSelect.run()
+    .then(answer=>console.log('Answer: ', answer))
+    .catch(console.error)
+})()
+
 
 //Parametre de commande
 const options = yargs
@@ -32,21 +56,4 @@ if(`${options.name}`!== 'undefined'){
   console.log(typeof `${options.name}`)
   console.log(`${options.name}`)
 }
-
-//Menu
-(async ()=> {
-  let res = []
-
-  for(let i = 0 ; i < 3; i++){
-    res.push({
-      type: 'input',
-      name: 'username',
-      message: "your name "
-    })   
-  }
-  const response = await  prompt(res)
-  console.log(response)
-
-
-})()
 
